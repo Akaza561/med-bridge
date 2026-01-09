@@ -1,89 +1,159 @@
-
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MedScan AI | Smart Medical Inventory</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        background-color: #020617;
-        color: #f1f5f9;
-        overflow-x: hidden;
-      }
-      .mesh-bg {
-        background-color: #020617;
-        background-image: 
-          radial-gradient(at 0% 0%, hsla(220, 100%, 10%, 1) 0, transparent 50%), 
-          radial-gradient(at 50% 0%, hsla(250, 80%, 12%, 1) 0, transparent 50%), 
-          radial-gradient(at 100% 0%, hsla(220, 100%, 10%, 1) 0, transparent 50%);
-        background-attachment: fixed;
-      }
-      .glass-card {
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(51, 65, 85, 0.5);
-      }
-      .glass-card:hover {
-        border-color: rgba(99, 102, 241, 0.4);
-      }
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
-        100% { transform: translateY(0px); }
-      }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 0 rgba(99, 102, 241, 0); }
-        50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
-      }
-      .glow-pulse {
-        animation: pulse-glow 3s infinite;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedScan AI | Smart Medical Inventory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #020617;
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+
+    .mesh-bg {
+      background-color: #020617;
+      background-image:
+        radial-gradient(at 0% 0%, hsla(220, 100%, 10%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(250, 80%, 12%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(220, 100%, 10%, 1) 0, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .glass-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
       }
 
-      /* Modal Animations */
-      @keyframes modal-in {
-        0% { opacity: 0; transform: scale(0.95) translateY(20px); }
-        100% { opacity: 1; transform: scale(1) translateY(0); }
+      50% {
+        transform: translateY(-12px);
       }
-      @keyframes modal-out {
-        0% { opacity: 1; transform: scale(1) translateY(0); }
-        100% { opacity: 0; transform: scale(0.95) translateY(20px); }
-      }
-      .animate-modal-in { animation: modal-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-      .animate-modal-out { animation: modal-out 0.2s cubic-bezier(0.7, 0, 0.84, 0) forwards; }
-      
-      @keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
-      @keyframes overlay-out { from { opacity: 1; } to { opacity: 0; } }
-      .animate-overlay-in { animation: overlay-in 0.3s ease forwards; }
-      .animate-overlay-out { animation: overlay-out 0.2s ease forwards; }
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
+      100% {
+        transform: translateY(0px);
       }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #334155;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #475569;
-      }
-    </style>
+    }
 
-  <link rel="stylesheet" href="/index.css">
-    <script type="importmap">
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 rgba(99, 102, 241, 0);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+      }
+    }
+
+    .glow-pulse {
+      animation: pulse-glow 3s infinite;
+    }
+
+    /* Modal Animations */
+    @keyframes modal-in {
+      0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes modal-out {
+      0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+      }
+    }
+
+    .animate-modal-in {
+      animation: modal-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-modal-out {
+      animation: modal-out 0.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+    }
+
+    @keyframes overlay-in {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes overlay-out {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    .animate-overlay-in {
+      animation: overlay-in 0.3s ease forwards;
+    }
+
+    .animate-overlay-out {
+      animation: overlay-out 0.2s ease forwards;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+
+  <link rel="stylesheet" href="index.css">
+  <script type="importmap">
     {
       "imports": {
         "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
@@ -95,7 +165,9 @@
     </script>
   <script type="module" crossorigin src="/med-bridge/assets/index-T7BUSLot.js"></script>
 </head>
-  <body class="mesh-bg min-h-screen">
-    <div id="root"></div>
+
+<body class="mesh-bg min-h-screen">
+  <div id="root"></div>
 </body>
+
 </html>
