@@ -811,8 +811,11 @@ const App: React.FC = () => {
         </section>
       </div>
 
-      <footer className="mt-auto py-10 text-center text-slate-700 text-[10px] font-bold uppercase tracking-[0.5em] opacity-40">
-        Secure Pharmaceutical Bridge &bull; Unified Medical Logistics
+      <footer className="mt-auto py-10 text-center space-y-2">
+        <p className="text-slate-700 text-[10px] font-bold uppercase tracking-[0.5em] opacity-40">Secure Pharmaceutical Bridge &bull; Unified Medical Logistics</p>
+        <a href="https://ai.studio/apps/drive/1PT8D1wyt0ozCiW0XZIr9-WNXOuJVrNhM" target="_blank" rel="noopener noreferrer" className="inline-block text-[10px] font-bold text-indigo-500/50 hover:text-indigo-500 transition-colors uppercase tracking-widest">
+          View in AI Studio
+        </a>
       </footer>
     </div>
   );
