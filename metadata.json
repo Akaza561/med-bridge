@@ -1,0 +1,7 @@
+{
+  "name": "Med-Bridge",
+  "description": "An intelligent medical assistant that extracts medicine names, dosages, and expiry dates from images of pharmaceutical products using advanced AI vision.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
